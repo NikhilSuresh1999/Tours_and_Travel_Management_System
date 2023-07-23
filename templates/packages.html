@@ -1,0 +1,86 @@
+{% extends "navbar.html" %}
+{% block title %}
+Add Package Information
+{% endblock title %}
+{% block body %}
+<div class="card-body bg-info">
+
+<br>
+
+<div class="container mt-4">
+<div class="display-4 text-center text-danger">Add Package Data</div>
+<br>
+<td><a href="/"><button class="btn btn-success">Back </button> </a> </td>
+<br>
+<br>
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card-body bg-danger">
+            {% include "message.html" %}
+            <h4 class="text-center text-success">Tours and Travels</h4>
+            <div class="card-body bg-danger">
+
+                <form action="/package" method="post">
+
+
+                    <div class="form-group">
+                        <input type="email" class="form-control mt-2" name="email" value="{{current_user.email}}"readonly
+                         required>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="pack_type" placeholder="Enter the package type" required >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="pname" placeholder="Enter package Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="start" placeholder="enter the startig location" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="destination" placeholder="enter the destination " required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="hcode" placeholder="enter the hotel code" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="hotel_name" placeholder="enter the hotel_name " required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="number" class="form-control mt-2" name="persons" placeholder="enter the no of persons" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control mt-2" name="cost" placeholder="enter the cost " required>
+                    </div>
+
+                    
+                 
+                    <br>
+                    <button class="btn btn-info" type="submit">Add</button>
+                    
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+   
+    <td><a href="/pdetails"><button class="btn btn-primary">Package Details </button> </a> </td>
+    </div>
+
+
+    
+
+{% endblock body %}

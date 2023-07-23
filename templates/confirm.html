@@ -1,0 +1,71 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Payment Confirmation
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Payment Confirmation</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+
+
+
+
+<div class="col-md-8">
+                <div class="card-body bg-light">
+                  <h5 class="card-title text-center bg-light">Payment info</h5>
+                  <div class="card bg-dark" style="width: 75rem;">
+                    <ul class="list-group list-group-flush bg-dark">
+                      <li class="list-group-item">SRF Id : <b>{{posts.srfid}}</b> </li>
+                      <li class="list-group-item">Username : <b>{{posts.username}}</b> </li>
+
+                      <li class="list-group-item">cost: <b>{{posts.cost}}</b> </li>
+                      <li class="list-group-item">Email : <b>{{posts.email}}</b></li>
+                      
+                      
+                      
+                      
+                      
+                     <td><a href="/confirm"><button class="btn btn-primary">pay now </button> </a> </td>
+
+
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,76 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Booking Details
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Bill Details</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<td><a href="/"><button class="btn btn-success">Back TO Home</button> </a> </td>
+<br>
+
+
+
+
+<div class="col-md-10">
+                <div class="card-body bg-light">
+                  <h5 class="card-title text-center bg-light">Bill Details</h5>
+                  <div class="card bg-dark" style="width: 70rem;">
+                    <ul class="list-group list-group-flush bg-light">
+                      <li class="list-group-item">Bill ID : <b>{{posts.id}}</b> </li>
+                      <li class="list-group-item">SRF Id : <b>{{posts.srfid}}</b> </li>
+                      <li class="list-group-item">Package ID : <b>{{posts.pack_id}}</b></li>
+                      <li class="list-group-item">Package Type : <b>{{posts.pack_type}}</b> </li>
+                      <li class="list-group-item">Hotel Code : <b>{{posts.hcode}}</b></li>
+                      <li class="list-group-item">Hotel Name :<b>{{posts.hotel_name}}</b>  </li>
+                      <li class="list-group-item">cost: <b>{{posts.cost}}</b> </li>
+                      <li class="list-group-item">Email : <b>{{posts.email}}</b></li>
+                      <li class="list-group-item">Username : <b>{{posts.username}}</b> </li>
+                      <li class="list-group-item">Phone NO : <b>{{posts.phone}}</b></li>
+                      <li class="list-group-item">Address :<b>{{posts.address}}</b>  </li>
+                      <li class="list-group-item">Total Amount :<b>{{posts.cost}}</b>  </li>
+                      <li class="list-group-item">Bill Status :<b>PAID</b>  </li>
+                      
+                     <td><a href="/downloaded"><button  class="btn btn-danger">Download Bill details  </button> </a> </td>
+
+
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </div>
+
+</div>
+<td><a href="/bookingdelete/{{posts.id}}"><button onclick="return confirm('Are you sure to cancel booking');" class="btn btn-danger">cancel Booking </button> </a> </td>
+
+</div>
+
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock body %}

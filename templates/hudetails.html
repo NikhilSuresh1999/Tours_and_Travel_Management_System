@@ -1,0 +1,58 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Agency Data
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Agency Details</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+<br>
+<br>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">User Code</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in query %}
+    <tr>
+      <th scope="row">{{post.id}}</th>
+      <td>{{post.hcode}}</td>
+      <td>{{post.email}}</td>
+      <td><a href="/hudelete/{{post.id}}"><button class="btn btn-danger">Delete </button> </a> </td>
+      
+      
+    
+{% endfor %}
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock body %}

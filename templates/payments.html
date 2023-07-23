@@ -1,0 +1,76 @@
+{% extends "baselogin.html" %}
+{% block title %}
+Add Payment Information
+{% endblock title %}
+{% block body %}
+<div class="card-body bg-info">
+
+<br>
+<br>
+
+<div class="container mt-4">
+<div class="display-4 text-center text-info">Payment</div>
+<br>
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card-body">
+            {% include "message.html" %}
+            
+            <div class="card-body bg-warning">
+
+                <form action="/pay" method="post">
+
+                    <div class="form-group">
+                        <input type="number" class="form-control mt-2" name="upi_id" placeholder="Enter the UPI ID" required >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <input type="number" class="form-control mt-2" name="upi_pin" placeholder="Enter Your UPI PIN" required>
+                    </div>
+
+                    
+                    <div class="form-group">
+                         <input
+                        type="email"
+                        class="form-control mt-2"
+                        name="email"
+                        value="{{current_user.email}}"
+                        readonly
+                        required/>
+                        </div>
+
+
+                     <div class="form-group">
+                         <input
+                        type="phone"
+                        class="form-control mt-2"
+                        name="email"
+                        value="{{posty.phone}}"
+                        readonly
+                        required/>
+                        </div>
+
+                    
+                    
+                 
+                    <br>
+                    <button class="btn btn-info" type="submit">Pay</button>
+                    
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+   
+    
+
+{% endblock body %}

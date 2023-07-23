@@ -1,0 +1,63 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Triggered Data
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>OPerations</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">hcode</th>
+      <th scope="col">hotel_name</th>
+      <th scope="col">rooms</th>
+      <th scope="col">package</th>
+      <th scope="col">Actions</th>
+      <th scope="col">Date</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in query %}
+    <tr>
+      <th scope="row">{{post.id}}</th>
+      <td>{{post.hcode}}</td>
+      <td>{{post.hotel_name}}</td>
+      <td>{{post.rooms}}</td>
+      <td>{{post.package}}</td>
+      <td>{{post.querys}}</td>
+      <td>{{post.date}}</td>
+      
+      
+    
+{% endfor %}
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock body %}

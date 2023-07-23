@@ -1,0 +1,61 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Triggered Data
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Operations</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">customer_id</th>
+      <th scope="col">username</th>
+      <th scope="col">phone Number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+      <th scope="col">Date</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in query %}
+    <tr>
+      <th scope="row">{{post.customer_id}}</th>
+      <td>{{post.username}}</td>
+      <td>{{post.phone}}</td>
+      <td>{{post.email}}</td>
+      <td>{{post.querys}}</td>
+      <td>{{post.date}}</td>
+      
+      
+    
+{% endfor %}
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock body %}

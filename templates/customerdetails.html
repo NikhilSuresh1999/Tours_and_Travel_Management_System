@@ -1,0 +1,82 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Customer Details
+{% endblock title %}
+
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Customer Details</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+<td><a href="/"><button class="btn btn-success">Back </button> </a> </td>
+<br>
+
+
+
+<div class="col-md-12">
+                <div class="card-body bg-light">
+                  <h5 class="card-title text-center bg-light">customer details</h5>
+                  <div class="card bg-dark" style="width: 78rem;">
+                    <ul class="list-group list-group-flush bg-light">
+                      
+                      <li class="list-group-item">customer_id : <b>{{post.customer_id}}</b></li>
+                      <li class="list-group-item">username : <b>{{post.username}}</b> </li>
+                      <li class="list-group-item"> Full name : <b>{{post.name}}</b></li>
+                      <li class="list-group-item">country :<b>{{post.country}}</b>  </li>
+                      <li class="list-group-item">gender: <b>{{post.gender}}</b> </li>
+                      <li class="list-group-item">address : <b>{{post.address}}</b></li>
+                      <li class="list-group-item">phone :<b>{{post.phone}}</b>  </li>
+                      <li class="list-group-item">email: <b>{{post.email}}</b> </li>
+                      <li class="list-group-item"></li>
+      
+    <td><a href="/edit/{{post.customer_id}}"><button class="btn btn-primary">Edit </button> </a> </td>
+    <td><a href="/delete/{{post.customer_id}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+    <td><a href="/cdetails"><button class="btn btn-warning">Booking Details </button> </a> </td>
+    </tr>
+    </ul>
+            </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </div>
+
+</div>
+
+
+</div>
+
+  </tbody>
+</table>
+
+     
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}

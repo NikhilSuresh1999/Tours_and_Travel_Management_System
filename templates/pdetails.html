@@ -1,0 +1,47 @@
+{% extends "navbar.html" %}
+{% block title %}
+Add Package Information
+{% endblock title %}
+{% block body %}
+<div class="card-body bg-warning">
+
+<br>
+<br>
+
+<td><a href="/package"><button class="btn btn-success">Back </button> </a> </td>
+<br>
+    
+              <div class="col-md-12">
+                <div class="card-body bg-warning">
+                  <h5 class="card-title text-center bg-warning">PACKAGE DATA</h5>
+                  <div class="card bg-dark" style="width: 75rem;">
+                    <ul class="list-group list-group-flush bg-success">
+                      <li class="list-group-item">Email : <b>{{postsdata.email}}</b> </li>
+                      <li class="list-group-item">Package Type : <b>{{postsdata.pack_type}}</b> </li>
+                      <li class="list-group-item">Package Name : <b>{{postsdata.pname}}</b></li>
+                      <li class="list-group-item">Starting Location : <b>{{postsdata.start}}</b> </li>
+                      <li class="list-group-item">Destination Location : <b>{{postsdata.destination}}</b></li>
+                      <li class="list-group-item">Hotel Code :<b>{{postsdata.hcode}}</b>  </li>
+                      <li class="list-group-item">Hotel Name: <b>{{postsdata.hotel_name}}</b> </li>
+                      <li class="list-group-item">No of Persons :<b>{{postsdata.persons}}</b>  </li>
+                      <li class="list-group-item">Amount: <b>{{postsdata.cost}}</b> </li>
+                      <td><a href="/pedit/{{postsdata.id}}"><button class="btn btn-primary">Edit </button> </a> </td>
+                     <td><a href="/pdelete/{{postsdata.id}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+
+
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </div>
+
+</div>
+
+
+</div>
+{% endblock body %}

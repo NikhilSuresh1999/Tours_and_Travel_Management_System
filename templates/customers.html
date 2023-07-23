@@ -1,0 +1,85 @@
+{% extends "navbar.html" %}
+{% block title %}
+Add Customer Information
+{% endblock title %}
+{% block body %}
+<div class="card-body bg-warning">
+<br>
+<br>
+
+<div class="container mt-8">
+<div class="display-4 text-center text-info">Add Customer Data</div>
+<br>
+<td><a href="/login"><button class="btn btn-success">Back </button> </a> </td>
+<br>
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card-body">
+            {% include "message.html" %}
+            
+            <div class="card-body bg-danger">
+
+                <form action="/customers" method="post">
+
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="username" placeholder="Enter the username" required >
+                        
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="name" placeholder="Enter the Name" required >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="country" placeholder="Enter The country" required>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="form-control mt-2  id="gender" name="gender" placeholder="enter the gender" name="gender" required>
+        
+    
+                                <option value="M">MALE</option>
+                                <option value="F">FEMALE</option>
+       
+                     </select>
+                        
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control mt-2" name="address" placeholder="enter the address " required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="number" class="form-control mt-2" name="phone" placeholder="enter the phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control mt-2" name="email" value="{{current_user.email}}"readonly
+                         required>
+
+
+                    
+
+                    
+                 
+                    <br>
+                    <button class="btn btn-info" type="submit">Add</button>
+                    
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+   
+    
+
+    
+
+{% endblock body %}

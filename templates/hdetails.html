@@ -1,0 +1,50 @@
+{% extends "navbar.html" %}
+{% block title %}
+Add Hotel Information
+{% endblock title %}
+{% block body %}
+<div class="card-body bg-success">
+
+
+<br>
+<td><a href="/addhotelinfo"><button class="btn btn-danger">Back </button> </a> </td>
+
+
+    <div class="display-4 text-center text-danger">Hotel Details</div>
+              <div class="col-md-12">
+                <div class="card-body bg-success">
+                  
+                  <div class="card bg-dark" style="width: 75rem;">
+                    <ul class="list-group list-group-flush bg-light">
+                      <li class="list-group-item">Hotel Code : <b>{{postsdata.hcode}}</b> </li>
+
+                      <li class="list-group-item">email : <b>{{postsdata.email}}</b> </li>
+                      <li class="list-group-item">Hotel Name : <b>{{postsdata.hotel_name}}</b></li>
+                      <li class="list-group-item">Hotel Type : <b>{{postsdata.hotel_type}}</b> </li>
+                      <li class="list-group-item">Rooms : <b>{{postsdata.rooms}}</b></li>
+                      <li class="list-group-item">address :<b>{{postsdata.address}}</b>  </li>
+                      <li class="list-group-item">package: <b>{{postsdata.package}}</b> </li>
+                      <li class="list-group-item-warning">
+                      <td><a href="/hedit/{{postsdata.id}}"><button class="btn btn-primary">Edit </button> </a> </td>
+                     <td><a href="/hdelete/{{postsdata.id}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td></li>
+
+
+                     
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+    </div>
+
+</div>
+<div class="card-body bg-success">
+
+
+</div>
+<div class="card-body bg-success">
+
+{% endblock body %}

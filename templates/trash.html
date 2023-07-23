@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %}
+Customer Details
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Customer Details</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">eid</th>
+      <th scope="col">customer_id</th>
+      <th scope="col">username</th>
+      <th scope="col">name</th>
+      <th scope="col">country</th>
+      <th scope="col">gender</th>
+      <th scope="col">address</th>
+      <th scope="col">phone</th>
+      <th scope="col">email</th>
+      <th scope="col">EDIT</th>
+      <th scope="col">DELETE</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in query %}
+    <tr>
+      <th scope="row">{{post.eid}}</th>
+      <td>{{post.customer_id}}</td>
+      <td>{{post.username}}</td>
+      <td>{{post.name}}</td>
+      <td>{{post.country}}</td>
+      <td>{{post.gender}}</td>
+      <td>{{post.address}}</td>
+      <td>{{post.phone}}</td>
+      <td>{{post.email}}</td>
+      
+    <td><a href="/edit/{{post.eid}}"><button class="btn btn-primary">Edit </button> </a> </td>
+    <td><a href="/delete/{{post.eid}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+    </tr>
+{% endfor %}
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'baselogin.html' %}
+{% block title %} Booking details{% endblock title %}
+{% block form %}
+
+
+<div class="row">
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+
+
+<br>
+<br>
+<h1>Booking Details</h1>
+<div class="card p-3">
+
+<table class="table table-dark">
+  <thead>
+  <tr>
+  <th scope="col">DETAILS</th>
+   </tr>
+<tr>
+     <th scope="col">{{data.srfid}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.pack_id}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.pack_type}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.hcode}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.hotel_name}}</th>
+</tr>
+
+<tr>
+
+      <th scope="col">{{data.cost}}</th>
+</tr>
+
+<tr>
+      <th scope="col">{{data.email}}</th>
+</tr>
+      <th scope="col">{{data.username}}</th>
+</tr>
+<tr>
+
+      <th scope="col">{{data.phone}}</th>
+    </tr>
+
+     <tr> 
+      <th scope="col">{{data.address}}</th>
+</tr>
+
+     <tr> 
+      <th scope="col">{{data.address}}</th>
+
+
+ 
+
+
+  </thead>
+
+
+      
+   
+    
+
+
+
+
+</div>
+</div>
+<div class="col-md-4"></div>
+
+</div>
+{% endblock form %}
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+<a href="/login" class="btn-get-started scrollto">Get Started</a>
+
+
+
+
+
+
+
+
+<li class="dropdown"><a href="/customers"><span>Customer_Registration</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/customers">click here</a></li>
+
+              
+            </ul>
+          </li>

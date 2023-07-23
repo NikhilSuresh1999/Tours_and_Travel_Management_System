@@ -1,0 +1,71 @@
+{% extends 'navbar.html' %}
+{% block title %}
+Package Data
+{% endblock title %}
+<div class="card-body bg-warning">
+
+
+{% block body %}
+<div class="card-body bg-info">
+ <h3 class="text-center"><span>Available package</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<div class="card-body bg-warning">
+<td><a href="/"><button class="btn btn-success">Back </button> </a> </td>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">package id</th>
+      <th scope="col">package type</th>
+      <th scope="col">package name</th>
+      <th scope="col">Starting Location</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Hotel code</th>
+      <th scope="col">Hotel Name</th>
+      <th scope="col">NO of persons</th>
+      <th scope="col">Cost</th>
+      <th scope="col">BOOK NOW</th>
+      
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in query %}
+    <tr>
+      <th scope="row">{{post.id}}</th>
+      <td>{{post.pack_type}}</td>
+      <td>{{post.pname}}</td>
+      <td>{{post.start}}</td>
+      <td>{{post.destination}}</td>
+      <td>{{post.hcode}}</td>
+      <td>{{post.hotel_name}}</td>
+      <td>{{post.persons}}</td>
+      <td>{{post.cost}}</td>
+      <td><a href="/availpack/{{post.id}}"><button class="btn btn-primary">BOOK NOW </button> </a> </td>
+      
+    
+{% endfor %}
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock body %}
